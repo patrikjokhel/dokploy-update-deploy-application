@@ -1,0 +1,68 @@
+name: 'Dokploy "Redeploy Application" Action for GitHub Actions'
+description: 'Deploy and update applications on Dokploy platform'
+author: 'patrikjokhel'
+
+branding:
+  icon: 'upload-cloud'
+  color: 'blue'
+
+inputs:
+  dokploy-url:
+    description: 'The URL of your Dokploy instance'
+    required: true
+  api-key:
+    description: 'API key for authenticating with Dokploy'
+    required: true
+  application-id:
+    description: 'ID of the application to deploy'
+    required: true
+  name:
+    description: 'Name of the application'
+    required: false
+  env:
+    description: 'Environment variables for the application in string format'
+    required: false
+  memory-reservation:
+    description: 'Memory reservation for the application'
+    required: false
+  memory-limit:
+    description: 'Memory limit for the application'
+    required: false
+  cpu-reservation:
+    description: 'CPU reservation for the application'
+    required: false
+  cpu-limit:
+    description: 'CPU limit for the application'
+    required: false
+  registry-url:
+    description: 'Docker registry URL'
+    required: false
+  registry-username:
+    description: 'Username for docker registry authentication'
+    required: false
+  registry-password:
+    description: 'Password for docker registry authentication'
+    required: false
+  docker-image:
+    description: 'Docker image to deploy'
+    required: false
+  deployment-title:
+    description: 'Title for the deployment'
+    required: false
+  deployment-description:
+    description: 'Description for the deployment'
+    required: false
+  replicas:
+    description: 'Number of replicas to run'
+    required: false
+  rollback-active:
+    description: 'Whether to enable rollback functionality (true/false)'
+    required: false
+
+outputs:
+  application-id:
+    description: 'The ID of the deployed application'
+
+runs:
+  using: 'node22'
+  main: 'dist/index.js'
