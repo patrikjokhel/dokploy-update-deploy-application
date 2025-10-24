@@ -79,10 +79,7 @@ async function run() {
 		}
 
 		const name = core.getInput("name", { required: false }) || undefined
-		const appName = core.getInput("app-name", { required: false }) || undefined
 		const env = core.getInput("env", { required: false }) || undefined
-		const previewEnv =
-			core.getInput("preview-env", { required: false }) || undefined
 		const memoryReservation =
 			core.getInput("memory-reservation", { required: false }) || undefined
 		const memoryLimit =
@@ -123,9 +120,7 @@ async function run() {
 
 		const updateParams = [
 			name,
-			appName,
 			env,
-			previewEnv,
 			rollbackActive,
 			memoryReservation,
 			memoryLimit,
