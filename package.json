@@ -1,27 +1,30 @@
 {
-  "name": "dokploy-redeploy-application",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "ncc build index.js -o dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/patrikjokhel/dokploy-redeploy-application.git"
-  },
-  "keywords": [],
-  "author": "patrikjokhel",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/patrikjokhel/dokploy-redeploy-application/issues"
-  },
-  "homepage": "https://github.com/patrikjokhel/dokploy-redeploy-application#readme",
-  "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.1"
-  },
-  "devDependencies": {
-    "@vercel/ncc": "^0.38.4"
-  }
+	"name": "dokploy-redeploy-application",
+	"version": "0.0.1",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "ncc build index.js -o dist",
+		"format": "prettier --write **/*.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/patrikjokhel/dokploy-redeploy-application.git"
+	},
+	"keywords": [],
+	"author": "patrikjokhel",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/patrikjokhel/dokploy-redeploy-application/issues"
+	},
+	"homepage": "https://github.com/patrikjokhel/dokploy-redeploy-application#readme",
+	"dependencies": {
+		"@actions/core": "^1.11.1",
+		"@actions/github": "^6.0.1",
+		"@actions/http-client": "^2.2.3"
+	},
+	"devDependencies": {
+		"@vercel/ncc": "^0.38.4",
+		"prettier": "^3.6.2"
+	}
 }
