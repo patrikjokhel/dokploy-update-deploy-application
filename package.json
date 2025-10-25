@@ -1,7 +1,7 @@
 {
 	"name": "dokploy-update-deploy-application",
 	"version": "0.0.1",
-	"description": "",
+	"description": "Update and deploy applications to a Dokploy instance",
 	"main": "index.js",
 	"scripts": {
 		"build": "ncc build index.js -o dist",
