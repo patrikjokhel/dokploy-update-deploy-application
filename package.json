@@ -1,6 +1,6 @@
 {
 	"name": "dokploy-update-deploy-application",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "Update and deploy applications to a Dokploy instance",
 	"main": "index.js",
 	"scripts": {
