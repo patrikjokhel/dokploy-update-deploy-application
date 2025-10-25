@@ -1,5 +1,5 @@
 {
-	"name": "dokploy-redeploy-application",
+	"name": "dokploy-update-deploy-application",
 	"version": "0.0.1",
 	"description": "",
 	"main": "index.js",
@@ -9,15 +9,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/patrikjokhel/dokploy-redeploy-application.git"
+		"url": "git+https://github.com/patrikjokhel/dokploy-update-deploy-application.git"
 	},
 	"keywords": [],
 	"author": "patrikjokhel",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/patrikjokhel/dokploy-redeploy-application/issues"
+		"url": "https://github.com/patrikjokhel/dokploy-update-deploy-application/issues"
 	},
-	"homepage": "https://github.com/patrikjokhel/dokploy-redeploy-application#readme",
+	"homepage": "https://github.com/patrikjokhel/dokploy-update-deploy-application#readme",
 	"dependencies": {
 		"@actions/core": "^1.11.1",
 		"@actions/github": "^6.0.1",

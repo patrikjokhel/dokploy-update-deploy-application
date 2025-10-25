@@ -1,5 +1,5 @@
-name: 'Dokploy "Redeploy Application" Action for GitHub Actions'
-description: 'Deploy and update applications on Dokploy platform'
+name: 'Dokploy "Update and Deploy Application" Action for GitHub Actions'
+description: 'Update and deploy applications on Dokploy platform'
 author: 'patrikjokhel'
 
 branding:
