@@ -120,7 +120,7 @@ async function run() {
 			}
 		)
 
-		const updateParams = [
+		const updateParams = {
 			name,
 			env,
 			rollbackActive,
@@ -133,15 +133,26 @@ async function run() {
 			password,
 			dockerImage,
 			replicas
-		]
-		if (updateParams.some((p) => p !== undefined)) {
+		}
+
+		const filteredUpdateParams = Object.keys(updateParams).reduce(
+			(acc, key) => {
+				if (updateParams[key] !== undefined) {
+					acc[key] = updateParams[key]
+				}
+				return acc
+			},
+			{}
+		)
+
+		if (Object.keys(filteredUpdateParams).length > 0) {
 			core.info(`Updating application '${applicationId}'...`)
 			await makePostRequest(
 				client,
 				`${dokployUrl}/api/application.update`,
 				{
 					applicationId,
-					...updateParams
+					...filteredUpdateParams
 				},
 				"updating application"
 			)
