@@ -1,6 +1,7 @@
 const core = require("@actions/core")
 const github = require("@actions/github")
 const httpm = require("@actions/http-client")
+
 /**
  * Parse a string input as an integer
  * @param {string} value - The input value
@@ -31,6 +32,15 @@ function parseBooleanInput(value) {
 	if (lower === "true") return true
 	if (lower === "false") return false
 	throw new Error(`Expected 'true' or 'false', got: ${value}`)
+}
+
+/**
+ * Parse an optional string input
+ * @param {string} key - The input key
+ * @returns {string|undefined}
+ */
+function parseOptionalStringInput(key) {
+	return core.getInput(key, { required: false }) || undefined
 }
 
 /**
@@ -68,34 +78,26 @@ async function run() {
 
 		// Mask secrets
 		core.setSecret(dokployAPIKey)
-		const username = core.getInput("registry-username", { required: false })
+		const username = parseOptionalStringInput("registry-username")
 		if (username) {
 			core.setSecret(username)
 		}
 
-		const password = core.getInput("registry-password", { required: false })
+		const password = parseOptionalStringInput("registry-password")
 		if (password) {
 			core.setSecret(password)
 		}
 
-		const name = core.getInput("name", { required: false }) || undefined
-		const env = core.getInput("env", { required: false }) || undefined
-		const memoryReservation =
-			core.getInput("memory-reservation", { required: false }) || undefined
-		const memoryLimit =
-			core.getInput("memory-limit", { required: false }) || undefined
-		const cpuReservation =
-			core.getInput("cpu-reservation", { required: false }) || undefined
-		const cpuLimit =
-			core.getInput("cpu-limit", { required: false }) || undefined
-		const registryUrl =
-			core.getInput("registry-url", { required: false }) || undefined
-		const dockerImage =
-			core.getInput("docker-image", { required: false }) || undefined
-		const title =
-			core.getInput("deployment-title", { required: false }) || undefined
-		const description =
-			core.getInput("deployment-description", { required: false }) || undefined
+		const name = parseOptionalStringInput("name")
+		const env = parseOptionalStringInput("env")
+		const memoryReservation = parseOptionalStringInput("memory-reservation")
+		const memoryLimit = parseOptionalStringInput("memory-limit")
+		const cpuReservation = parseOptionalStringInput("cpu-reservation")
+		const cpuLimit = parseOptionalStringInput("cpu-limit")
+		const registryUrl = parseOptionalStringInput("registry-url")
+		const dockerImage = parseOptionalStringInput("docker-image")
+		const title = parseOptionalStringInput("deployment-title")
+		const description = parseOptionalStringInput("deployment-description")
 		const replicas = parseIntInput(
 			core.getInput("replicas", { required: false }),
 			"replicas"
