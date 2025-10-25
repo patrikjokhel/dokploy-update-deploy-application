@@ -64,5 +64,5 @@ outputs:
     description: 'The ID of the deployed application'
 
 runs:
-  using: 'node22'
+  using: 'node20'
   main: 'dist/index.js'
